@@ -46,9 +46,11 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.activity.compose)
+    implementation(libs.navigation.compose)
     implementation(libs.compose.material3)
 
     implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
     kapt(libs.hilt.compiler)
 
     implementation(libs.room.runtime)
