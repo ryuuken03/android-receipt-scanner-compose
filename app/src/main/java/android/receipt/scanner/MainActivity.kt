@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,8 +34,16 @@ class MainActivity : ComponentActivity(){
                     composable(Screen.Scan.route) {
                         ScanReceiptScreen(navController)
                     }
-                    composable(Screen.AddEdit.route) {
-                        AddEditExpenseScreen(navController)
+                    composable(
+                        route = Screen.AddEdit.route,
+                        arguments = listOf(
+                            navArgument("imagePath") { nullable = true }
+                        )
+                    ) {
+                        AddEditExpenseScreen(
+                            navController,
+                            imagePath = it.arguments?.getString("imagePath")
+                        )
                     }
                 }
             }

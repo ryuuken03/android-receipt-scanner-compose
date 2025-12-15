@@ -21,45 +21,49 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun AddEditExpenseScreen(navController: NavController) {
+fun AddEditExpenseScreen(
+    navController: NavController,
+    imagePath: String?
+) {
     var merchant by remember { mutableStateOf("") }
     var total by remember { mutableStateOf("") }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        Text(
-            text = "Tambah Pengeluaran",
-            style = MaterialTheme.typography.headlineMedium
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        OutlinedTextField(
-            value = merchant,
-            onValueChange = { merchant = it },
-            label = { Text("Nama Toko") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedTextField(
-            value = total,
-            onValueChange = { total = it },
-            label = { Text("Total") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = { navController.popBackStack(Screen.Dashboard.route, false) },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Simpan")
-        }
-    }
+    Text("Image path: $imagePath")
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .padding(16.dp)
+//    ) {
+//        Text(
+//            text = "Tambah Pengeluaran",
+//            style = MaterialTheme.typography.headlineMedium
+//        )
+//
+//        Spacer(modifier = Modifier.height(16.dp))
+//
+//        OutlinedTextField(
+//            value = merchant,
+//            onValueChange = { merchant = it },
+//            label = { Text("Nama Toko") },
+//            modifier = Modifier.fillMaxWidth()
+//        )
+//
+//        Spacer(modifier = Modifier.height(8.dp))
+//
+//        OutlinedTextField(
+//            value = total,
+//            onValueChange = { total = it },
+//            label = { Text("Total") },
+//            modifier = Modifier.fillMaxWidth()
+//        )
+//
+//        Spacer(modifier = Modifier.height(16.dp))
+//
+//        Button(
+//            onClick = { navController.popBackStack(Screen.Dashboard.route, false) },
+//            modifier = Modifier.fillMaxWidth()
+//        ) {
+//            Text("Simpan")
+//        }
+//    }
 }
