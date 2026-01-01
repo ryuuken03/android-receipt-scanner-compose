@@ -1,5 +1,6 @@
 package android.receipt.scanner.ui.scan
 
+import android.net.Uri
 import android.receipt.scanner.ui.navigation.Screen
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -22,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import java.io.File
 
@@ -61,8 +63,10 @@ fun ScanReceiptScreen(navController: NavController) {
                             override fun onImageSaved(
                                 outputFileResults: ImageCapture.OutputFileResults
                             ) {
+                                val imageUri = outputFileResults.savedUri
+                                    ?: photoFile.toUri()
                                 navController.navigate(
-                                    Screen.AddEdit.route + "?imagePath=${photoFile.absolutePath}"
+                                    Screen.AddEdit.route + "?imageUri=${Uri.encode(imageUri.toString())}"
                                 )
                             }
 

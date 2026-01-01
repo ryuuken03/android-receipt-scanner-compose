@@ -55,6 +55,8 @@ dependencies {
     implementation(libs.camerax.lifecycle)
     implementation(libs.camerax.view)
 
+    implementation(libs.mlkit.text)
+
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     kapt(libs.hilt.compiler)
